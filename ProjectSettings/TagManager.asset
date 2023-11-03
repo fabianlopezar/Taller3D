@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - perro
+  - gallina
+  - caballo
+  - gato
+  - back
+  - carrito1
+  - carrito2
+  - carrito3
   layers:
   - Default
   - TransparentFX
