@@ -12,9 +12,7 @@ public class Teleport : MonoBehaviour
         {
     
             TeleportCharacter(other.gameObject);
-        }
-    
-        
+        }       
     }
     
     private void TeleportCharacter(GameObject character)
