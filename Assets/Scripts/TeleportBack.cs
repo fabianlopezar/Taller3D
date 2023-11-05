@@ -1,16 +1,23 @@
-
 using UnityEngine;
 
 public class TeleportBack : MonoBehaviour
 {
+    private System.Random generadorRandom;
+
     public bool carrito1=false;
     public bool carrito2=false;
     public bool carrito3=false;
     public Transform destination; 
+    public Transform[] spawns;
+    public GameObject carPreFab;
 
+    public void Start()
+    {
+        SpawnCarritos();
+    }
     private void OnTriggerEnter(Collider other)
     {
-        //    Debug.Log("Deberia funcionar");
+
         if (other.gameObject.CompareTag("back") && carrito1 && carrito2 && carrito3) // Asegúrate de que el personaje tenga una etiqueta "Player".
         {
 
@@ -45,5 +52,15 @@ public class TeleportBack : MonoBehaviour
         {
             Debug.LogError("El destino no está configurado. Asegúrate de asignar un objeto de destino en el Inspector.");
         }
+    }
+
+    void SpawnCarritos()
+    {
+                
+        generadorRandom = new System.Random();
+        int numeroAleatorio = generadorRandom.Next(0, 8);
+
+
+        GameObject elem = Instantiate(carPreFab, spawns[numeroAleatorio].position, spawns[numeroAleatorio].rotation);
     }
 }
