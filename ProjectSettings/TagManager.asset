@@ -12,6 +12,7 @@ TagManager:
   - carrito1
   - carrito2
   - carrito3
+  - Coin
   layers:
   - Default
   - TransparentFX

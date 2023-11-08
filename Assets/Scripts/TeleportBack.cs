@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TeleportBack : MonoBehaviour
 {
@@ -11,14 +12,16 @@ public class TeleportBack : MonoBehaviour
     public Transform[] spawns;
     public GameObject carPreFab;
 
+    public string sceneName;
+
     public void Start()
     {
         SpawnCarritos();
     }
     private void OnTriggerEnter(Collider other)
     {
-
-        if (other.gameObject.CompareTag("back") && carrito1 && carrito2 && carrito3) // Asegúrate de que el personaje tenga una etiqueta "Player".
+       
+        if (other.gameObject.CompareTag("back")  ) 
         {
 
             TeleportCharacter(this.gameObject);
@@ -38,15 +41,17 @@ public class TeleportBack : MonoBehaviour
             carrito3 = true;
             Destroy(other.gameObject);
         }
+        if (carrito1 && carrito2 && carrito3)
+        {
 
-
+            CambioEscena();
+        }
     }
     private void TeleportCharacter(GameObject character)
     {
         if (destination != null)
         {
-            character.transform.position = destination.position;
-            // Puedes agregar más lógica aquí si deseas realizar alguna otra acción al teletransportar.
+            character.transform.position = destination.position;            
         }
         else
         {
@@ -58,9 +63,12 @@ public class TeleportBack : MonoBehaviour
     {
                 
         generadorRandom = new System.Random();
-        int numeroAleatorio = generadorRandom.Next(0, 8);
-
+        int numeroAleatorio = generadorRandom.Next(0, 3);
 
         GameObject elem = Instantiate(carPreFab, spawns[numeroAleatorio].position, spawns[numeroAleatorio].rotation);
+    }
+    public void CambioEscena()
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }
