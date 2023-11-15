@@ -1,3 +1,7 @@
+/*Fabian Esteban Lopez Arias 2216110
+ * johann alberto Bocanegra 2200850
+ * Nicolás donneys Alvarado 2211348
+ */
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
